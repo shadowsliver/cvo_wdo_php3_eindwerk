@@ -1,0 +1,32 @@
+$error_white: #fafafa;
+$error_darkblue: #2c3e50;
+$error_darkred: #c0392b;
+$error_seagreen: #2ecc71;
+$error_black: #0A0A0A;
+
+body {
+  margin: 0;
+}
+
+.errorMessageBoxGlobal, .infoMessageBoxGlobal, .debugMessageBoxGlobal {
+  border-bottom: 4px solid $error_black;
+  text-align: center;
+  padding: 10px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.errorMessageBoxGlobal {
+  color: $error_white;
+  background-color: $error_darkred;
+}
+
+.infoMessageBoxGlobal {
+  color: $error_darkblue;
+  background-color: $error_seagreen;
+}
+
+.debugMessageBoxGlobal {
+  color: $error_seagreen;
+  background-color: $error_darkblue;
+}
