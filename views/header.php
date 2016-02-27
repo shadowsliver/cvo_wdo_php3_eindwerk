@@ -21,6 +21,6 @@ $pages_name = array(
         </nav>
     </div>
     <div id="header" class="row">
-       <img src="images/logo.png" alt="logo" class="img-responsive"> <span class="greentext">&#60;about&#62;</span> &nbsp;CodeSource Base&nbsp;<span class="greentext">&#60;/about&#62;</span>
+       <img src="./assets/images/logo.png" alt="logo" class="img-responsive"> <span class="greentext">&#60;about&#62;</span> &nbsp;CodeSource Base&nbsp;<span class="greentext">&#60;/about&#62;</span>
     </div>
 </div>

@@ -18,22 +18,37 @@ class Controller
         $this->Handler();
     }
 
+    /**
+     * Default handler for page load
+     */
     public function Handler(){
 
     }
 
+    /**
+     * @return int
+     */
     public function GetDebugging(){
         return $this->properties->debugging;
     }
 
+    /**
+     * @return Properties
+     */
     public function GetProperties(){
         return $this->properties;
     }
 
+    /**
+     * @return Functions
+     */
     public function CallFunction(){
         return $this->functions;
     }
 
+    /**
+     * @return database connection
+     */
     public function GetDatabase(){
         return $this->db;
     }

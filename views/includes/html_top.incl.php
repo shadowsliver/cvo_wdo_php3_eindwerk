@@ -8,7 +8,7 @@
 
     <?php foreach ($controller->GetProperties()->stylesheets as $style) : ?>
         <link rel="stylesheet" type="text/css"
-	href="css/<?php echo $style; ?>" media="screen">
+	href="./assets/css/<?php echo $style; ?>" media="screen">
     <?php endforeach; ?>
     
     <?php foreach ($controller->GetProperties()->javascript_top as $js) : ?>
@@ -17,5 +17,5 @@
 
 </head>
 <body>
-<?php include 'views/includes/global_messaging_system.incl.php';?>
-<?php include 'views/header.php';?>
+<?php include './views/includes/global_messaging_system.incl.php';?>
+<?php include './views/header.php';?>

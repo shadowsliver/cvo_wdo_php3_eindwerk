@@ -13,12 +13,12 @@ class Properties
 
     );
 
-    /*scripts top of page - local files need /js/ to support CDN links*/
+    /*scripts top of page - local files need ./assets/js/ to support CDN links*/
     public $javascript_top = array(
 
     );
 
-    /*scripts bottom of page*/
+    /*scripts bottom of page - local files need ./assets/js/ to support CDN links*/
     public $javascript_bot = array(
 
     );
