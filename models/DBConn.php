@@ -41,4 +41,12 @@ class DBConn
         $statement->execute();
     }
 
+
+    public function saveBoek($title, $isbn, $prijs, $schrijver, $genre, $inhoud){
+        $boekSQL = "INSERT INTO boek(boek_titel, boek_isbn, boek_prijs, schrijver_id, boek_genre, boek_inhoud)
+                    VALUES(?, ?, ?, ?, ?, ?)";
+        $formData= array($title, $isbn, $prijs, $schrijver, $genre, $inhoud);
+        $boekStatement = $this->makeStatement($boekSQL, $formData);
+        return $this->db->lastInsertId();
+    }
 }
