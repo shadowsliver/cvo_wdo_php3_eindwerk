@@ -2,51 +2,83 @@
 
 class DBConn
 {
+    public $conn;
 
-    private $user;
-    private $password;
-    private $databaseName;
-    private $port;
-    private $conn;
-
-    public function __construct($user, $password, $databaseName)
+    /**
+     * DBConn constructor.
+     */
+    function __construct()
     {
-        $this->user = $user;
-        $this->password = $password;
-        $this->databaseName = $databaseName;
-        $this->port = $port;
         $this->CreateConnection();
     }
 
     private function CreateConnection()
     {
-        $this->conn = new PDO("mysql:host=localhost;dbname=$this->databaseName", $this->user, $this->password);
-        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // geeft fouten in sql weer
+        $this->conn = new PDO('sqlite:models/php3eindwerk.sqlite') or die("cannot open the database");
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function GetAllRecords($table)
+    public function Login($user, $pass)
     {
-        $sql = "SELECT * FROM $table WHERE $table"."_id=1";
+        $sql = "SELECT *  FROM users WHERE user_name= ? AND user_password= ?";
+        $data = array($user, $pass);
         $statement = $this->conn->prepare($sql);
-        $statement->execute();
-        $product = $statement-> fetchObject();
-
-        return $product;
+        $statement->execute($data);
+        $model = $statement->fetchObject();
+        if($model != null){
+            $_SESSION['login'] = true;
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public function UpdateRecord($input, $output, $table){
-        $sql="UPDATE $table SET $input = $output WHERE $table"."_id=1";
-
-        $statement = $this->conn->prepare($sql);
+    public function GetKlanten()
+    {
+        $sql = "SELECT * FROM klanten";
+        $statement = $this->conn->query($sql);
         $statement->execute();
+        return $statement;
     }
 
+    public function GetSchijvers()
+    {
+        $sql = "SELECT * FROM schrijvers";
+        $statement = $this->conn->query($sql);
+        $statement->execute();
+        return $statement;
+    }
 
-    public function saveBoek($title, $isbn, $prijs, $schrijver, $genre, $inhoud){
-        $boekSQL = "INSERT INTO boek(boek_titel, boek_isbn, boek_prijs, schrijver_id, boek_genre, boek_inhoud)
-                    VALUES(?, ?, ?, ?, ?, ?)";
-        $formData= array($title, $isbn, $prijs, $schrijver, $genre, $inhoud);
-        $boekStatement = $this->makeStatement($boekSQL, $formData);
-        return $this->db->lastInsertId();
+    public function GetBoeken()
+    {
+        $sql = "SELECT * FROM boeken";
+        $statement = $this->conn->query($sql);
+        $statement->execute();
+        return $statement;
+    }
+
+    public function GetLeningen(){
+        $sql = "SELECT *
+                FROM klanten k
+                JOIN uitleningen u
+                on k.klant_id = u.uitlening_klant_id
+                JOIN boeken b
+                on u.uitlening_boek_id = b.boek_id";
+        $statement = $this->conn->query($sql);
+        $statement->execute();
+        return $statement;
+    }
+
+    public function GetLeningenLaat(){
+        $sql = "SELECT *
+                FROM klanten k
+                JOIN uitleningen u
+                on k.klant_id = u.uitlening_klant_id
+                JOIN boeken b
+                on u.uitlening_boek_id = b.boek_id
+                WHERE u.uitlening_datum + INTERVAL 2 DAY < NOW()";
+        $statement = $this->conn->query($sql);
+        $statement->execute();
+        return $statement;
     }
 }

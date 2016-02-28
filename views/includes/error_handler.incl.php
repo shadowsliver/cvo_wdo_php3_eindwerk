@@ -1,8 +1,7 @@
 <?php
-function myErrorHandler($errno, $errstr, $errfile, $errline)
+function myErrorHandler($errno, $errstr, $errfile, $errline, $controller)
 {
-
-    function message_debug($message)
+    function message_debug_new($message)
     {
         if(!isset($_SESSION['debugMessage'])){
             $_SESSION['debugMessage'] = '<br>' . $message;
@@ -17,20 +16,20 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 
     switch ($errno) {
         case E_USER_ERROR:
-            message_debug("<b>My ERROR</b> [$errno] $errstr<br />\n  Fatal error on line $errline in file $errfile, PHP " . PHP_VERSION . " (" . PHP_OS . ")<br />\nAborting...<br />\n");
+            message_debug_new("<b>My ERROR</b> [$errno] $errstr<br />\n  Fatal error on line $errline in file $errfile, PHP " . PHP_VERSION . " (" . PHP_OS . ")<br />\nAborting...<br />\n");
             exit(1);
             break;
 
         case E_USER_WARNING:
-            message_debug("<b>My WARNING</b> [$errno] $errstr\n");
+            message_debug_new("<b>My WARNING</b> [$errno] $errstr\n");
             break;
 
         case E_USER_NOTICE:
-            message_debug("<b>My NOTICE</b> [$errno] $errstr\n");
+            message_debug_new("<b>My NOTICE</b> [$errno] $errstr\n");
             break;
 
         default:
-            message_debug("<b>Unknown error type:</b> [$errno] $errstr\n");
+            message_debug_new("<b>Unknown error type:</b> [$errno] $errstr\n");
             break;
     }
 

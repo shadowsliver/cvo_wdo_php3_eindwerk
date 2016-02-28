@@ -1,8 +1,9 @@
 <?php
 include_once 'views/includes/config.incl.php';
 $page = 'home'; // de 'index' pagina
+date_default_timezone_set("Europe/Brussels");
 
-$controller->GetProperties()->stylesheets =  array(
+$controller->GetProperties()->stylesheets = array(
     "style.css"
 );
 $controller->GetProperties()->javascript_top = array(
@@ -12,9 +13,9 @@ $controller->GetProperties()->javascript_bot = array(
     "./assets/js/jquery.min.js", "./assets/js/bootstrap.min.js"
 );
 
-if(!empty($_GET['page'])){
+if (!empty($_GET['page'])) {
     $page = $_GET['page'];
-}else{
+} else {
     $controller->CallFunction()->redirect("index.php?page=$page");
 }
 

@@ -1,7 +1,7 @@
+<?php include_once 'includes/security.incl.php'; ?>
+
 <?php
-/**
- * Created by PhpStorm.
- * User: Michel
- * Date: 28/02/2016
- * Time: 1:53
- */
+$results = $controller->GetKlanten();
+foreach ($results as $row) {
+    print_r($row);
+}

@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION['login'])){
-	$_SESSION['errorMessage'] = "U moet eerst inloggen voordat u " . basename($_SERVER['PHP_SELF']) . " kunt gebruiken!";
-	redirect("index.php?page=login");
+if(!isset($_SESSION['login']) || $_SESSION['login'] == false){
+	$_SESSION['errorMessage'] = "U moet eerst inloggen voordat u deze website kunt gebruiken!";
+	$controller->CallFunction()->redirect("index.php?page=login");
 }
