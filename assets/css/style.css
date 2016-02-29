@@ -7923,6 +7923,9 @@ body {
 .greentext {
   color: #2ecc71; }
 
+.nav-tabs > li > a .logout, .nav-tabs > li > a:hover .logout, .nav-tabs > li > a:focus .logout {
+  color: #00b3ee; }
+
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   background-color: #e74c3c;
   border-radius: 8px 8px 0 0;
@@ -7949,5 +7952,30 @@ body {
 
 .laat {
   color: #e74c3c; }
+
+.niet_laat {
+  color: #27ae60; }
+
+span.badge {
+  font-size: 1.2em; }
+  span.badge a:link {
+    color: #fafafa; }
+  span.badge a:visited {
+    color: #fafafa; }
+  span.badge a:hover {
+    color: #2ecc71; }
+  span.badge a:active {
+    color: #e74c3c; }
+
+span.display {
+  font-weight: bold;
+  display: inline-block;
+  min-width: 200px;
+  text-decoration: underline; }
+
+.infobox {
+  color: #fafafa;
+  background: #2c3e50;
+  border-radius: 20px; }
 
 /*# sourceMappingURL=style.css.map */

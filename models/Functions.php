@@ -2,6 +2,10 @@
 
 class Functions
 {
+    /**
+     * @param $number
+     * @return int
+     */
     public function IsPositive($number){
         if($number >= 0){
             return $number;
@@ -10,6 +14,9 @@ class Functions
         }
     }
 
+    /**
+     * @param $message
+     */
     public function message_debug($message)
     {
         if(!isset($_SESSION['debugMessage'])){
@@ -20,6 +27,9 @@ class Functions
 
     }
 
+    /**
+     * @param $message
+     */
     public function message_info($message)
     {
         if(!isset($_SESSION['infoMessage'])){
@@ -29,6 +39,9 @@ class Functions
         }
     }
 
+    /**
+     * @param $message
+     */
     public function message_error($message)
     {
         if(!isset($_SESSION['errorMessage'])){
@@ -38,6 +51,9 @@ class Functions
         }
     }
 
+    /**
+     * @param $page
+     */
     public function redirect($page)
     {
         header("location:$page");

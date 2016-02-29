@@ -1,6 +1,6 @@
 <?php
 include_once 'views/includes/config.incl.php';
-$page = 'home'; // de 'index' pagina
+$page = 'login'; // de 'index' pagina
 date_default_timezone_set("Europe/Brussels");
 
 $controller->GetProperties()->stylesheets = array(

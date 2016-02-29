@@ -1,16 +1,16 @@
 <?php
 
 $pages = array(
-    "home", "klanten", "schijvers", "boeken", "uitleningen", "logout"
+    "home", "klanten", "schrijvers", "boeken", "uitleningen", "logout"
 );
 $pages_name = array(
-    "Home", "Klanten overzicht", "Schijvers", "Boeken", "Uitlenen", "Uitloggen"
+    "Home", "Klanten overzicht", "Schrijvers", "Boeken", "Uitlenen", "<span class='logout'><i class=\"fa fa-sign-out\"></i>Uitloggen</span>"
 );
 
 
 ?>
 <div class="container">
-    <?php if($_SESSION['login'] != null) : ?>
+    <?php if($_SESSION['login'] != false) : ?>
     <div class="row">
         <nav id="menu">
             <ul class="nav nav-tabs">

@@ -9,6 +9,7 @@ $color-red-light: #e74c3c;
 $color-white: #fafafa;
 $color-midnightblue: #2c3e50;
 $color-emerald-green: #2ecc71;
+$color-nephritis-green: #27ae60;
 $color-black: #3A3A3A;
 
 $banner-size-height: 80px;
@@ -31,6 +32,11 @@ body {
 
 .greentext {
   color: $color-emerald-green;
+}
+
+
+.nav-tabs > li > a .logout, .nav-tabs > li > a:hover .logout, .nav-tabs > li > a:focus .logout{
+  color: #00b3ee;
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
@@ -64,6 +70,38 @@ body {
   }
 }
 
-.laat{
+.laat {
   color: $color-red-light;
+}
+.niet_laat {
+  color: $color-nephritis-green;
+}
+
+span.badge {
+  font-size: 1.2em;
+  a:link {
+    color: $color-white;
+  }
+  a:visited {
+    color: $color-white;
+  }
+  a:hover {
+    color: $color-emerald-green;
+  }
+  a:active {
+    color: $color-red-light;
+  }
+}
+
+span.display{
+  font-weight: bold;
+  display: inline-block;
+  min-width: 200px;
+  text-decoration: underline;
+}
+
+.infobox{
+  color: $color-white;
+  background: $color-midnightblue;
+  border-radius: 20px;
 }

@@ -5,7 +5,7 @@ class Properties
     public $language = "nl"; //en, de, nl,...
     public $pagetitle = "untitled";
     public $pagemeta = "Website from Michel Michaux";
-    public $debugging = 1;
+    public $debugging = 0;
 
 
     /*Stylesheets*/

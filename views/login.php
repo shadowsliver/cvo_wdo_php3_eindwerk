@@ -11,4 +11,12 @@
             </form>
         </div>
     </div>
+    <div class="row margintop">
+        <div class="col-sm-4 col-sm-push-4 infobox">
+            <h3>Voor Jos:</h3>
+            <p><strong>Login:</strong> admin</p>
+            <p><strong>password:</strong> admin</p>
+            <br>
+        </div>
+    </div>
 </div>
